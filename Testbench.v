@@ -1,4 +1,4 @@
-`timescale 1us/1ns
+`timescale 1ns/1ns
 module tb_ram_sp_sync_read();
 	
 	// Testbench variables
@@ -11,6 +11,11 @@ module tb_ram_sp_sync_read();
 	reg [7:0] wr_data;
 	integer success_count, error_count, test_count;
     integer i;
+
+	initial begin
+		$dumpfile("dump.vcd");          // VCD file name
+		$dumpvars(0, tb_ram_sp_sync_read); // dump all signals
+	end
 	
 	// Instantiate the DUT
 	ram_sp_sync_read RAM0(
